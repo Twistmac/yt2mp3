@@ -1,13 +1,13 @@
 # yt2mp3
 
-Petit script en ligne de commande pour télécharger une vidéo YouTube (ou une playlist entière) et la convertir directement en MP3, avec une barre de progression pour les playlists.
+A small command-line script to download a YouTube video (or an entire playlist) and convert it directly to MP3, with a progress bar for playlists.
 
-## Prérequis
+## Requirements
 
-- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) — moteur de téléchargement
-- `ffmpeg` — conversion audio
-- [`deno`](https://deno.land/#installation) — requis par `yt-dlp` pour certains contournements anti-bot de YouTube
-- Google Chrome installé (le script lit les cookies de Chrome via `--cookies-from-browser chrome` pour accéder aux vidéos nécessitant une connexion)
+- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) — download engine
+- `ffmpeg` — audio conversion
+- [`deno`](https://deno.land/#installation) — required by `yt-dlp` for some of YouTube's anti-bot workarounds
+- Google Chrome installed (the script reads Chrome's cookies via `--cookies-from-browser chrome` to access videos that require being signed in)
 
 ## Installation
 
@@ -17,25 +17,25 @@ cd yt2mp3
 ./install.sh
 ```
 
-`install.sh` :
-- rend `bin/yt2mp3.sh` exécutable et l'installe sous le nom `yt2mp3`, dans `/usr/local/bin` (si accessible via `sudo`) ou sinon dans `~/.local/bin` (ajouté automatiquement au `PATH` si besoin) ;
-- vérifie la présence de `yt-dlp`, `ffmpeg` et `deno`, et affiche les commandes d'installation correspondantes (apt/dnf/pacman) si l'une d'elles manque.
+`install.sh`:
+- makes `bin/yt2mp3.sh` executable and installs it as `yt2mp3`, in `/usr/local/bin` (if accessible via `sudo`) or otherwise in `~/.local/bin` (automatically added to `PATH` if needed);
+- checks for `yt-dlp`, `ffmpeg` and `deno`, and prints the corresponding install commands (apt/dnf/pacman) if any of them is missing.
 
-## Utilisation
+## Usage
 
 ```bash
-yt2mp3 "URL"                # télécharge une seule vidéo
-yt2mp3 "URL" --playlist     # télécharge toute la playlist, avec barre de progression
+yt2mp3 "URL"                # download a single video
+yt2mp3 "URL" --playlist     # download the whole playlist, with a progress bar
 ```
 
-Les fichiers MP3 sont enregistrés dans le dossier courant, c'est-à-dire celui depuis lequel la commande est lancée.
+MP3 files are saved in the current directory, i.e. the one the command is run from.
 
-## Qualité et format
+## Quality and format
 
-Le script télécharge le meilleur flux audio disponible et le convertit en MP3 à la meilleure qualité (`--audio-quality 0`), sans conserver la miniature, la description ni les métadonnées JSON de la vidéo.
+The script downloads the best available audio stream and converts it to MP3 at the highest quality (`--audio-quality 0`), without keeping the video thumbnail, description, or JSON metadata.
 
-## Dépannage
+## Troubleshooting
 
-- **`yt2mp3: command not found`** : ouvre un nouveau terminal (ou exécute `source ~/.bashrc` / `source ~/.zshrc`) après l'installation, le temps que le `PATH` soit rechargé.
-- **Erreur liée aux cookies / connexion** : assure-toi que Chrome est installé et que tu es connecté à ton compte Google dedans si la vidéo le nécessite.
-- **Erreur liée à `deno`** : vérifie que `deno` est bien installé dans `~/.deno/bin/deno` ou accessible dans le `PATH`.
+- **`yt2mp3: command not found`**: open a new terminal (or run `source ~/.bashrc` / `source ~/.zshrc`) after installing, to let the updated `PATH` take effect.
+- **Cookie/sign-in related error**: make sure Chrome is installed and that you're signed in to your Google account there if the video requires it.
+- **`deno`-related error**: check that `deno` is installed at `~/.deno/bin/deno` or available in your `PATH`.
