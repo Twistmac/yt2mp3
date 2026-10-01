@@ -19,7 +19,7 @@ cd yt2mp3
 
 `install.sh`:
 - makes `bin/yt2mp3.sh` executable and installs it as `yt2mp3`, in `/usr/local/bin` (if accessible via `sudo`) or otherwise in `~/.local/bin` (automatically added to `PATH` if needed);
-- checks for `yt-dlp`, `ffmpeg` and `deno`, and prints the corresponding install commands (apt/dnf/pacman) if any of them is missing.
+- automatically installs any missing dependency (`yt-dlp`, `ffmpeg`, `deno`, Google Chrome/Chromium) using your distribution's package manager (apt, dnf, pacman, zypper) — no manual step required.
 
 ## Usage
 
