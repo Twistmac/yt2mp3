@@ -21,4 +21,4 @@ yt2mp3 "URL"                # une seule vidéo
 yt2mp3 "URL" --playlist     # toute la playlist
 ```
 
-Les fichiers MP3 sont enregistrés dans `~/Downloads/musique`.
+Les fichiers MP3 sont enregistrés dans le dossier courant (celui depuis lequel la commande est lancée).

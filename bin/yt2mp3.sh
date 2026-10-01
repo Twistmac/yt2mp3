@@ -1,7 +1,6 @@
 #!/bin/bash
 # usage : yt2mp3.sh "URL" [--playlist]
-DOSSIER="$HOME/Downloads/musique"
-mkdir -p "$DOSSIER"
+DOSSIER="$(pwd)"
 
 OPTS="-f bestaudio/best -x --audio-format mp3 --audio-quality 0 --no-write-thumbnail --no-write-description --no-write-info-json --js-runtimes deno:$HOME/.deno/bin/deno --remote-components ejs:github --cookies-from-browser chrome"
 
